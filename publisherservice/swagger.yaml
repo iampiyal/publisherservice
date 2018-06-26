@@ -1,0 +1,61 @@
+swagger: "2.0"
+info:
+  description: "This is the Swaggar file to elaborate the API details used for the publisher and consumer microservice applications to calculate the shortest distance between two cities."
+  version: "1.0.0"
+  title: "Publisher and Consumer Application to calculate the shortest distance between two cities "
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+tags:
+- name: "shortestdistancecalculator"
+  description: "To get the different attributes associated to a given city"
+schemes:
+- "http"
+paths:
+  /{cityname}:
+    get:
+      tags:
+      - "publisherservice"
+      summary: "Returns list of city properties "
+      description: "Given  a city, it returns a set of properties associated to that city in the form of city, destiny city ,start time and end time etc"
+      operationId: "rediretionToCitiesList"
+     
+      parameters: 
+      - name: "cityname"
+        in: "path"
+        description: "Name of the sourrce city"
+        
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          
+
+    
+  /cities/{chosencity}:
+    get:
+      tags:
+      - "shortestdistancecalculator"
+      summary: "Find shortest istance between two cities"
+      description: "This returns the shortest distance between the given city and the destiny cities based on distance and time"
+      operationId: "getShortestDistance"
+     
+      parameters:
+      - name: "chosencity"
+        in: "path"
+        description: "Given a city it returns the shortest istance between that city and the destiny cities"
+        required: true
+        type: "string"
+        
+      responses:
+        200:
+          description: "successful operation"
+         
+   
+  
+
+ 
